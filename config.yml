@@ -1,0 +1,25 @@
+#==============================================================================
+#     FICHERO: config.yml
+#       AUTOR: Victor Rodriguez victor<at>vrdominguez.es
+# DESCRIPCION: Fichero de configuracion para comandos del contestador
+#==============================================================================
+
+# Usuarios con acceso a comandos restringidos
+administradores:
+  - administrator1@example.com
+
+# Configuraciones del comando "espacio"
+espacio:
+  # Poner a 1 para que muestre solo datos de espacio de carpetas que sean puntos de montaje
+  solo_mountpoints: 0
+  carpetas:
+    - /ruta/mountpoint/defecto
+    - /ruta/otro/mountpoint
+
+# Configuracion del comando "descargas"
+descargas:
+   usuario: nombre_usuario
+   clave: clave_usuario
+   host: localhost
+   ejecutable: /usr/bin/transmission-remote 
+
