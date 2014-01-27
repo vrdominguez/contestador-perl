@@ -16,7 +16,7 @@ sub instanciarComando {
 	#comando siempre debe tener el mismo formato: todo mininusculas menos la primera letra
 	$comando = ucfirst(lc($comando));
 	
-        my $ruta = "comando/$comando\.pm";
+        my $ruta = "Comando/$comando\.pm";
         my $class = "Comando::$comando";
 
         require $ruta;
@@ -28,7 +28,7 @@ sub instanciarComando {
 sub comandosDisponibles {
 	my $self = $_[0];
 	
-	my @lista_comandos = `ls ./comando/`;
+	my @lista_comandos = `ls ./Comando/`;
 	
 	foreach my $comando (@lista_comandos) {
 		chomp $comando;

@@ -4,26 +4,20 @@
 #       AUTOR: Victor Rodriguez - victor <at> vrdominguez.es
 # DESCRIPCION: Lanzador de comandos para el contestador
 #==============================================================================
-sub BEGIN {
+BEGIN {
 	##
 	# 
-	# Calculamos la ruta real a la aplicacion, aunque se lance desde un enlace
-	# y nos cambiamos a ella, asi evitamos problemas de ruta
+	# Este bloque de codigo (BEGIN) se ejecutara antes de aplicar los "use".
+	# Gracias a esto, nos posicionamos en el directorio donde se encuentran
+	# las fuentes para poder cargar las clases necesarias
 	#
-	# Este bloque de codigo (BEGIN) se ejecutara antes de aplicar los "use"
-	#
+	use Cwd qw(abs_path);
 	use File::Basename;
-	my $origen = (caller(0))[1];
-	if (my $ruta_real = readlink((caller(0))[1])) {
-		chdir(dirname($ruta_real));
-	}
-	else {
-		chdir(dirname($origen));
-	}	
+	chdir(dirname(abs_path(__FILE__)));
 }
 
-use Comando;
 use strict;
+use Comando;
 
 my $comando = shift(@ARGV);
 my @argumentos = @ARGV;

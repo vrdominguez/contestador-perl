@@ -1,7 +1,8 @@
 #==============================================================================
 #     FICHERO: config.yml
 #       AUTOR: Victor Rodriguez victor<at>vrdominguez.es
-# DESCRIPCION: Fichero de configuracion para comandos del contestador
+# DESCRIPCION: Fichero de configuracion para comandos del contestador. Antes
+#              de comenzad, este fichero debe ser adaptado a tu configuracion
 #==============================================================================
 
 # Usuarios con acceso a comandos restringidos
@@ -18,8 +19,16 @@ espacio:
 
 # Configuracion del comando "descargas"
 descargas:
-   usuario: nombre_usuario
-   clave: clave_usuario
-   host: localhost
-   ejecutable: /usr/bin/transmission-remote 
+  usuario: nombre_usuario
+  clave: clave_usuario
+  host: localhost
+  ejecutable: /usr/bin/transmission-remote 
+  puerto: 9091
+  dominio: example.com
+
+router:
+  ip: 192.168.1.1 
+  usuario: admin_telnet_router
+  clave: clave_telnet_router
+  prompt: RouterPrompt> 
 
