@@ -14,7 +14,7 @@ sub params {
 	my $self = $_[0];
 	
 	# Comprobamos que se sea administrador
-	#$self->soloAdministradores();
+	$self->soloAdministradores();
 	
 	return $self; 
 }
