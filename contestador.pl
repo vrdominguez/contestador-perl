@@ -5,15 +5,12 @@
 # DESCRIPCION: Lanzador de comandos para el contestador
 #==============================================================================
 BEGIN {
-	##
-	# 
-	# Este bloque de codigo (BEGIN) se ejecutara antes de aplicar los "use".
-	# Gracias a esto, nos posicionamos en el directorio donde se encuentran
-	# las fuentes para poder cargar las clases necesarias
-	#
 	use Cwd qw(abs_path);
 	use File::Basename;
-	chdir(dirname(abs_path(__FILE__)));
+	
+	# Incluimos en @INC la ruta con el codigo del contestador 
+	push @INC, dirname(abs_path(__FILE__));
+
 }
 
 use strict;

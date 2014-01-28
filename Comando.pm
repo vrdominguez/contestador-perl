@@ -8,27 +8,29 @@ package Comando;
 
 use strict;
 use YAML;
-
+use Cwd qw(abs_path);
+use File::Basename;
+	
 # --- metodos de clase -------------------------------------------------------------
 sub instanciarComando {
-        my $comando = shift;
+	my $comando = shift;
 
 	#comando siempre debe tener el mismo formato: todo mininusculas menos la primera letra
 	$comando = ucfirst(lc($comando));
 	
-        my $ruta = "Comando/$comando\.pm";
-        my $class = "Comando::$comando";
-
-        require $ruta;
-
-	my $objeto = $class->new();
+	my $class = "Comando::$comando";
+	my $ruta = "Comando/$comando\.pm";
+	require $ruta; 
+	
+	return $class->new();
 }
 
 
 sub comandosDisponibles {
 	my $self = $_[0];
 	
-	my @lista_comandos = `ls ./Comando/`;
+	my $ruta_base = dirname(abs_path(__FILE__));
+	my @lista_comandos = `ls $ruta_base/Comando/`;
 	
 	foreach my $comando (@lista_comandos) {
 		chomp $comando;
@@ -50,8 +52,11 @@ sub new {
 sub __cargaConfiguraciones {
 	my $self = $_[0];
 	
+	# Calculamos la ruta al fichero de configuracion
+	my $fichero_config = dirname(abs_path(__FILE__)) . '/config.yml';
+	
 	# Abrimos el fichero de configuracion
-	open(my $fichero, '<', 'config.yml')
+	open(my $fichero, '<', $fichero_config)
 		 || die('No se pudo cargar la configuracion');
 	my $config = &YAML::LoadFile($fichero);
 	close($fichero);
