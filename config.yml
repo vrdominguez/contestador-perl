@@ -26,9 +26,16 @@ descargas:
   puerto: 9091
   dominio: example.com
 
+# Datos de acceso al router
 router:
   ip: 192.168.1.1 
   usuario: admin_telnet_router
   clave: clave_telnet_router
   prompt: RouterPrompt> 
 
+# Listadp de macs conocidas
+macs:
+  DE:V0:CE:MA:C0:00: Device0 name 
+  DE:V0:CE:MA:C0:01: Device1 name 
+  DE:V0:CE:MA:C0:02: Device2 name 
+  DE:V0:CE:MA:C0:03: Device3 name 
