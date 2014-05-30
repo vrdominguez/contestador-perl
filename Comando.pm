@@ -20,15 +20,19 @@ sub instanciarComando {
 	
 	my $class = "Comando::$comando";
 	my $ruta = "Comando/$comando\.pm";
-	require $ruta; 
+	
+	eval {
+		require $ruta; 
+	};
+	if ($@) {
+		die("Error cargando la clase necesaria para ejecutar $comando. Detalles: $@");
+	}
 	
 	return $class->new();
 }
 
 
 sub comandosDisponibles {
-	my $self = $_[0];
-	
 	my $ruta_base = dirname(abs_path(__FILE__));
 	my @lista_comandos = `ls $ruta_base/Comando/`;
 	
@@ -50,8 +54,6 @@ sub new {
 }
 
 sub __cargaConfiguraciones {
-	my $self = $_[0];
-	
 	# Calculamos la ruta al fichero de configuracion
 	my $fichero_config = dirname(abs_path(__FILE__)) . '/config.yml';
 	

@@ -1,4 +1,23 @@
-## 0.0.2
+CHANGELOG
+======
+
+0.0.3
+------
+
+Bugfixes:
+
+ - Añadido control de errores producidos al instanciarun comando
+
+Nuevos comandos:
+
+ - Transmission: Controles del demonio de transmission
+
+ - Uptime: Devuelve el uptime de la raspberry
+
+___
+
+0.0.2
+------
 
 Bugfixes:
 
@@ -14,8 +33,13 @@ Nuevos comandos:
 
  - Url: Devuelve la url de acceso a la interfaz web de transmission remote
 
-## 0.0.1
+___
+
+0.0.1
+------
 
 Funciones:
 
  - Version inicial del contestador.
+
+___
