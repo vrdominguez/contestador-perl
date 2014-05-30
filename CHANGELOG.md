@@ -1,6 +1,15 @@
 CHANGELOG
 ======
 
+0.0.4
+------
+
+Novedades:
+ 
+ - Nuevo sistema para crear alias de comandos, definidos en el fichero de configuracion
+
+___
+
 0.0.3
 ------
 

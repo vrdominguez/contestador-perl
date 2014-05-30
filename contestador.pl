@@ -15,16 +15,18 @@ BEGIN {
 
 use strict;
 use Comando;
+use Alias;
 
 my $comando = shift(@ARGV);
 my @argumentos = @ARGV;
-
 
 unless($comando) {
 	print "No se ha definido comando a ejecutar.\nUso: contestador <comando> [<argumentos>]\n";
 	exit 1;
 }
 
+# Pasamos el comando y los argumentos como referencia, asi ya nos quedan preparados
+Alias->new()->traducirAlias(\$comando, \@argumentos);
 
 my $comandos_disponibes = &Comando::comandosDisponibles();
 

@@ -39,3 +39,15 @@ macs:
   DE:V0:CE:MA:C0:01: Device1 name 
   DE:V0:CE:MA:C0:02: Device2 name 
   DE:V0:CE:MA:C0:03: Device3 name 
+
+# Alias para comandos
+alias:
+  tr:
+    - Transmission
+    - reiniciar
+  ti:
+    - Transmission
+    - iniciar
+  td:
+    - Transmission
+    - detener
